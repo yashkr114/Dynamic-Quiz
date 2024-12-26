@@ -1,5 +1,5 @@
 async function getquestion() {
-    let a = await fetch(`question_bank/ques.json`);
+    let a = await fetch(`ques.json`);
     let response = await a.json();
 
     return response;
