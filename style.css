@@ -1,0 +1,481 @@
+ /* body{
+    background-color: black;
+    overflow: auto;
+}
+.invert{
+    filter: invert(1);
+}
+input[type="text"] {
+    border: 1px solid black;
+}
+.container{
+   
+    height: 400px;
+  
+    
+    background-color: rgb(176, 172, 172);
+
+     justify-content: center;
+    padding: 40px;
+    margin: 100px;
+    border-radius: 20px;
+     overflow:auto;
+    
+}
+.frontPage{
+    display: block;
+}
+
+
+.displayQues  {
+    background-color: green;
+   overflow: auto;
+    display: none;
+   
+}
+.displayQues  ul li{
+    list-style-type: decimal;
+}
+.options ul li{
+    list-style-type: upper-alpha;
+} */
+
+   /* Reset and base styles */
+   
+/* 
+/* Reset and base styles */
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: gradientBG 15s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 900px;
+    min-height: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 20px auto;
+    overflow: auto;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Front Page Styles */
+.frontPage {
+    text-align: center;
+    padding: 3rem 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.nameOfUser{
+    margin: 2.5rem 0;
+    position: relative;
+}
+.totalQues {
+    margin: 2.5rem 0;
+    position: relative;
+}
+.finalPage{
+    display: none;
+}
+.nameOfUser input{
+    padding: 15px 25px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1.2rem;
+    width: 250px;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.nameOfUser input:focus{
+    outline: none;
+    border-color: #4CAF50;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+}
+
+.totalQues input {
+    padding: 15px 25px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1.2rem;
+    width: 250px;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.totalQues input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+}
+
+/* Button Styles */
+.startButton, .submitButton {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.startButton:hover, .submitButton:hover {
+    background: linear-gradient(45deg, #45a049, #4CAF50);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.startButton:active, .submitButton:active {
+    transform: translateY(1px);
+}
+
+/* Questions Display */
+.displayQues {
+    display: none;
+    background: transparent;
+    padding: 1.5rem;
+    border-radius: 20px;
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.displayQues ul {
+    list-style: none;
+    padding: 0;
+}
+
+.displayQues ul li {
+    list-style:decimal;
+    background: rgba(255, 255, 255, 0.07);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.displayQues ul li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.displayQues ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #4CAF50;
+    border-radius: 4px 0 0 4px;
+}
+
+.ques {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    font-weight: 500;
+    padding-left: 1rem;
+    border-left: 3px solid #4CAF50;
+}
+
+/* Options Styling */
+.options ul {
+    padding-left: 1rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.options ul li {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0.5rem 0;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.options ul li:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Radio Button Styling */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked {
+    border-color: #4CAF50;
+    background: #4CAF50;
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+}
+/* Results Display */
+.totalCorrectAnswers,
+.totalIncorrectAnswers,
+.totalAttemptedQuestions {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255,0.07);
+    border-left: 4px solid;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.totalCorrectAnswers {
+    color: #4CAF50;
+    border-left-color: #4CAF50;
+}
+
+.totalIncorrectAnswers {
+    color: #f44336;
+    border-left-color: #f44336;
+}
+
+.totalAttemptedQuestions {
+    color: #ffd700;
+    border-left-color: #ffd700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+/* Progress Bar Container */
+.progress-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 3px;
+    position: sticky;
+    top: 0;
+    margin-bottom: 20px;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 0%;
+    height: 20px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    border-radius: 8px;
+    transition: width 0.4s ease-in-out;
+    position: relative;
+}
+
+/* Progress Text */
+.progress-text {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .ques {
+        font-size: 1.2rem;
+    }
+
+    .options ul li {
+        padding: 0.8rem;
+    }
+
+    .startButton, .submitButton {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        margin: 10px;
+        padding: 1rem;
+    }
+
+    .totalQues input {
+        width: 200px;
+    }
+
+    .ques {
+        font-size: 1.1rem;
+    }
+}
+/* Previous CSS remains the same until the options styling */
+
+/* Options Grid Styling */
+.options ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.options ul li {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    min-height: 60px;
+}
+
+.options ul li:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #4CAF50;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+}
+
+.options ul li.selected {
+    background: rgba(76, 175, 80, 0.2);
+    border-color: #4CAF50;
+}
+
+/* Radio button and text alignment */
+.options ul li input[type="radio"] {
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+/* Ensure text wraps properly in grid items */
+.options ul li span {
+    flex: 1;
+    word-break: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .options ul {
+        grid-template-columns: 1fr; /* Stack options vertically on smaller screens */
+        gap: 0.8rem;
+    }
+
+    .options ul li {
+        padding: 0.8rem 1.2rem;
+        min-height: 50px;
+    }
+}
+
+/* Add hover state cursor */
+.options ul li:hover {
+    cursor: pointer;
+}
+
+/* Active state for options */
+.options ul li:active {
+    transform: scale(0.98);
+}
+
+/* Rest of the CSS remains the same */
